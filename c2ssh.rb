@@ -15,7 +15,7 @@ last_port = get_last_port()
 def get_last_port()
 	last_port = 0 
 	hosts = get_hosts()
-	for hosts["hosts"].each do |host|
+	hosts["hosts"].each do |host|
 		if host > last_port
 			last_port = host
 		end
