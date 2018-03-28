@@ -10,6 +10,6 @@ hosts = get_hosts()
 
 hostsfile = File.open("hosts", "w")
 hosts["hosts"].each do |host|
-	hostsfile.write(host[0]+":"+host[1].to_s+"\n")
+	hostsfile.write("127.0.0.1:"+host[1].to_s+"\n")
 end
 hostsfile.close
