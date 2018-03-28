@@ -9,20 +9,6 @@ set :port, 8080
 
 master_key = "a187904d1b0023a4d2fbdcd8483170b5021003"
 
-
-last_port = get_last_port()
-
-def get_last_port()
-	last_port = 0 
-	hosts = get_hosts()
-	hosts["hosts"].each do |host|
-		if host > last_port
-			last_port = host
-		end
-	end
-	return last_port
-end
-
 def create_db()
 	settings = {"hosts"=>{}}
 	f = File.open("hosts.json", "w")
@@ -33,6 +19,19 @@ end
 def get_hosts()
 	return JSON.parse(File.open("hosts.json", "r").read())
 end
+
+def get_last_port()
+	last_port = 0 
+	hosts = get_hosts()
+	hosts["hosts"].each do |host|
+		puts host[1]
+		if host[1] > last_port
+			last_port = host[1]
+		end
+	end
+	return last_port
+end
+
 
 def add_host(host, port)
 	settings = get_hosts()
@@ -49,6 +48,8 @@ else
 	puts "hosts.json doesn't exist, creating it..."
 	create_db()
 end
+
+last_port = get_last_port()
 
 get '/' do
 	return "<head>404</head>"
