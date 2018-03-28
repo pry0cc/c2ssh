@@ -8,8 +8,8 @@ end
 
 hosts = get_hosts()
 
+hostsfile = File.open("hosts", "w")
 hosts["hosts"].each do |host|
-	hostsfile = File.open("hosts", "w")
 	hostsfile.write(host[0]+":"+host[1].to_s)
-	hostsfile.close
 end
+hostsfile.close
