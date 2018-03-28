@@ -23,11 +23,15 @@ end
 def get_last_port()
 	last_port = 2000
 	hosts = get_hosts()
-	hosts["hosts"].each do |host|
-		puts host[1]
-		if host[1] > last_port
-			last_port = host[1]
+	begin
+		hosts["hosts"].each do |host|
+			puts host[1]
+			if host[1] > last_port
+				last_port = host[1]
+			end
 		end
+	rescue
+		puts "IDK"
 	end
 	return last_port
 end
