@@ -21,7 +21,7 @@ def get_hosts()
 end
 
 def get_last_port()
-	last_port = 0 
+	last_port = 2000
 	hosts = get_hosts()
 	hosts["hosts"].each do |host|
 		puts host[1]
