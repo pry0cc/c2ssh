@@ -18,6 +18,8 @@ end
 hostsfile.close
 
 anshosts = File.open("hosts", "w")
+anshosts.write("Host *\n")
+anshosts.write("    StrictHostKeyChecking no\n\n")
 hosts["hosts"].each do |host|
 	anshosts.write(host[0]+"\n")
 end
