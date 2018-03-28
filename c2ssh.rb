@@ -26,8 +26,8 @@ def get_last_port()
 	begin
 		hosts["hosts"].each do |host|
 			puts host[1]
-			if host[1] > last_port
-				last_port = host[1]
+			if host[1] >= last_port
+				last_port = host[1]+1
 			end
 		end
 	rescue
