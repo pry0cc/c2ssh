@@ -9,7 +9,19 @@ set :port, 8080
 
 master_key = "a187904d1b0023a4d2fbdcd8483170b5021003"
 
-last_port = 2000
+
+last_port = get_last_port()
+
+def get_last_port()
+	last_port = 0 
+	hosts = get_hosts()
+	for hosts["hosts"].each do |host|
+		if host > last_port
+			last_port = host
+		end
+	end
+	return last_port
+end
 
 def create_db()
 	settings = {"hosts"=>{}}
