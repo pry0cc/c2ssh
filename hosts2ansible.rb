@@ -3,7 +3,7 @@
 require 'json'
 
 def get_hosts()
-	return JSON.parse(File.open("hosts.test", "r").read())
+	return JSON.parse(File.open("hosts.json", "r").read())
 end
 
 hosts = get_hosts()
